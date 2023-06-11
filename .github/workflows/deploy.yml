@@ -8,8 +8,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
-      pages: write
-      id-token: write
+      contents: write
+      # pages: write
+      # id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -24,14 +25,16 @@ jobs:
       - run: npm i
       - name: Build
         run: npm run docs:build
-      # - name: Deploy 🚀
-      #   uses: JamesIves/github-pages-deploy-action@v4
-      #   with:
-      #     folder: .vitepress/dist # The folder the action should deploy.
-      - uses: actions/configure-pages@master
-      - uses: actions/upload-pages-artifact@v1
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          path: .vitepress/dist
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v1
+          folder: .vitepress/dist # The folder the action should deploy.
+          # branch: master
+          # token: ${{ secrets.DEPLOY }}
+      # - uses: actions/configure-pages@master
+      # - uses: actions/upload-pages-artifact@v1
+      #   with:
+      #     path: .vitepress/dist
+      # - name: Deploy
+      #   id: deployment
+      #   uses: actions/deploy-pages@v1
