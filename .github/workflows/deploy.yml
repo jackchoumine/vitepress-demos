@@ -25,8 +25,8 @@ jobs:
       - run: npm i
       - name: Build
         run: npm run docs:build
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Deploy to GitHub Pages 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.4.2
         with:
           folder: .vitepress/dist # The folder the action should deploy.
           # branch: master
