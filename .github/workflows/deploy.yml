@@ -25,10 +25,10 @@ jobs:
       - name: Build
         run: npm run docs:build
       - uses: actions/configure-pages@master
-        with:
-          # branch: master
-          folder: docs/.vitepress/dist
-          token: ${{ secrets.DEPLOY }}
+        # with:
+        #   # branch: master
+        #   folder: ['docs/.vitepress/dist']
+        #   token: ${{ secrets.DEPLOY }}
       - uses: actions/upload-pages-artifact@v1
         with:
           path: docs/.vitepress/dist
