@@ -1,6 +1,6 @@
 name: Deploy
 on:
-# workflow_dispatch: {}
+  workflow_dispatch: {}
   push:
     branches:
       - master
@@ -18,10 +18,10 @@ jobs:
         with:
           fetch-depth: 0
       - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          cache: npm
-      - run: npm ci
+        # with:
+        #   node-version: 16
+        #   cache: npm
+      - run: npm i
       - name: Build
         run: npm run docs:build
       - uses: actions/configure-pages@v2
