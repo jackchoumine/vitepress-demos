@@ -21,18 +21,23 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
-          cache: npm
+          cache: pnpm
 
-      - run: npm i
+      - name: 安装pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: 安装 node 依赖
+        run: pnpm i --frozen-lockfile
 
       - name: Build
-        run: npm run docs:build
+        run: pnpm docs:build
 
       - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4.4.2
         with:
-          folder: .vitepress/dist # The folder the action should deploy.
+          folder: docs/.vitepress/dist # The folder the action should deploy.
           # branch: master
           # token: ${{ secrets.DEPLOY }}
       # - uses: actions/configure-pages@master
