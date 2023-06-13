@@ -19,7 +19,7 @@ features:
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
   - title: 特色2
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
+  - title: 特色3
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
 
